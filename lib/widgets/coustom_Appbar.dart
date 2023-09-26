@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/coutom_Buttom_search.dart';
 
 class coustomAppBar extends StatelessWidget {
-  const coustomAppBar({super.key});
-
+  const coustomAppBar({super.key, required this.title, required this.icon});
+  final String title;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         Text(
-          "Note",
-          style: TextStyle(
+          title,
+          style: const TextStyle(
             fontSize: 28,
           ),
         ),
-        Spacer(),
-        coustomButtomShearch(),
+        const Spacer(),
+        coustomButtomShearch(icon: icon),
       ],
     );
   }

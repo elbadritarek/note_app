@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class coustomButtomShearch extends StatelessWidget {
-  const coustomButtomShearch({super.key});
-
+  const coustomButtomShearch({super.key, required this.icon});
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,8 +11,8 @@ class coustomButtomShearch extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.05),
           borderRadius: const BorderRadius.all(Radius.circular(16))),
-      child: const Center(
-        child: Icon(Icons.search, size: 28),
+      child: Center(
+        child: Icon(icon, size: 28),
       ),
     );
   }
