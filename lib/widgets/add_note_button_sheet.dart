@@ -13,7 +13,11 @@ class AddNoteActionButton extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          coustomTextFeild(),
+          coustomTextFeild(hintText: "Title"),
+          SizedBox(
+            height: 10,
+          ),
+          coustomTextFeild(hintText: "Content", maxLines: 5),
         ],
       ),
     );
