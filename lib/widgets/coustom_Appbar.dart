@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/coutom_Buttom.dart';
+import 'package:notes_app/widgets/coutom_Buttom_search.dart';
 
 class coustomAppBar extends StatelessWidget {
   const coustomAppBar({super.key});
@@ -15,7 +15,7 @@ class coustomAppBar extends StatelessWidget {
           ),
         ),
         Spacer(),
-        coustomButtom(),
+        coustomButtomShearch(),
       ],
     );
   }

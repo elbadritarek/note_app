@@ -11,7 +11,7 @@ class coustomTextFeild extends StatelessWidget {
     return TextField(
       maxLines: maxLines,
       decoration: InputDecoration(
-        hintText: " Title",
+        hintText: hintText,
         hintStyle: TextStyle(color: KprimaryColor),
         enabledBorder: BulderReduis(),
         focusedBorder: BulderReduis(color: KprimaryColor),
