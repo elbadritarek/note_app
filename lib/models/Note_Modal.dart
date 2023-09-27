@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'lib/models/note_modal.g.dart';
+part 'note_modal.g.dart';
 
 @HiveType(typeId: 0)
 class NoteModal extends HiveObject {
