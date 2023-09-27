@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/constants.dart';
+import 'package:notes_app/widgets/coustom_add_button.dart';
 import 'package:notes_app/widgets/coustom_text_field.dart';
 
 class AddNoteActionButton extends StatelessWidget {
@@ -7,54 +7,68 @@ class AddNoteActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 40,
-            ),
-            coustomTextFeild(hintText: "Title"),
-            SizedBox(
-              height: 14,
-            ),
-            coustomTextFeild(hintText: "Content", maxLines: 5),
-            SizedBox(
-              height: 14,
-            ),
-            coustomBottomAdd(),
-            SizedBox(
-              height: 55,
-            )
-          ],
-        ),
-      ),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      child: SingleChildScrollView(child: AddNoteForm()),
     );
   }
 }
 
-class coustomBottomAdd extends StatelessWidget {
-  const coustomBottomAdd({super.key});
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({super.key});
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  final GlobalKey<FormState> fronKey = GlobalKey();
+
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  String? title, subTitle;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 55,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: KprimaryColor,
-      ),
-      child: Center(
-        child: Text(
-          "Add",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.w300,
+    return Form(
+      key: fronKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 40,
           ),
-        ),
+          coustomTextFeild(
+              onSaved: (data) {
+                title = data;
+              },
+              hintText: "Title"),
+          const SizedBox(
+            height: 14,
+          ),
+          coustomTextFeild(
+              onSaved: (data) {
+                subTitle = data;
+              },
+              hintText: "Content",
+              maxLines: 5),
+          const SizedBox(
+            height: 14,
+          ),
+          coustomBottomAdd(
+            onTap: () {
+              if (fronKey.currentState!.validate()) {
+                fronKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
+          const SizedBox(
+            height: 55,
+          )
+        ],
       ),
     );
   }
