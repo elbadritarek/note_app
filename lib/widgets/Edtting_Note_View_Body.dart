@@ -12,7 +12,10 @@ class EdttingNoteViewBody extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 50),
-          coustomAppBar(icon: Icons.check, title: "Edti Note"),
+          coustomAppBar(
+            icon: Icons.check,
+            title: "Edti Note",
+          ),
           SizedBox(
             height: 50,
           ),
