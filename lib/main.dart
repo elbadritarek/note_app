@@ -11,7 +11,7 @@ import 'constants.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox(kNonetsBox);
+  await Hive.openBox<NoteModal>(kNonetsBox);
   Hive.registerAdapter(NoteModalAdapter());
   Bloc.observer = simpleBlocObserver();
   runApp(const NoteApp());
