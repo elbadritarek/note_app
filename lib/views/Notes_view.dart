@@ -11,6 +11,7 @@ class NoteView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             shape: const BeveledRectangleBorder(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16),
